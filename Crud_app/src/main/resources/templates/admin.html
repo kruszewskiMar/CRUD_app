@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Strona główna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    <style type="text/css">
+        html,body{overflow-y: scroll;}
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Hurtownia Części Elektronicznych</a>
+
+        <a class="w3-bar-item w3-button w3-padding-large w3-white" th:inline="text" style="color:lightskyblue;">Jesteś zalogowany/a jako: <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+    </div>
+</div>
+
+
+<div style="position: fixed; top:50px; left:300px;" align="center" class="tiles-grid row align-items-center"  >
+    <a th:href="@{/admin/adresy}"
+       data-role="tile" data-size="large" class="bg-red col-6 row-5">
+        <span class="mif-contacts-mail icon"></span>
+        <span class="branding-bar">Adresy</span>
+    </a>
+    <a th:href="@{/admin/klienci}"
+       data-role="tile" data-size="large" class="bg-red col-10 row-5">
+        <span class="mif-table icon"></span>
+        <span class="branding-bar">Lista klientów</span>
+    </a>
+    <a th:href="@{/admin/produktyAdmin}"
+       data-role="tile" data-size="large" class="bg-red col-20 row-5">
+        <span class="mif-wind icon"></span>
+        <span class="branding-bar">Produkty</span>
+    </a>
+</div>
+<div style="position: fixed; top:500px; left:720px">
+
+<form method="post" th:action="@{/index}">
+<button class="btn btn-danger btn-lg" type="submit" onclick="successfullyLogout()" value="Sign Out">Wyloguj</button>
+</form>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+<script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
+</body>
+</html>

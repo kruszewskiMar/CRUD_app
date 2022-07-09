@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Produkty</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Hurtownia Części Elektrycznych</a>
+        <a href="/user" class="w3-bar-item w3-button w3-padding-large w3-white">Strona główna</a>
+        <a class="w3-bar-item w3-button w3-padding-large w3-white" th:inline="text" style="color:lightskyblue;">Jesteś zalogowany/a jako: <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<br></br>
+<br></br>
+<div align="center">
+    <h1>Twój koszyk</h1>
+    <div align="center">
+
+
+        <!-- Break line -->
+        <br/><br/>
+        <table border = "1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Nr Produktu</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Czas gwarancji [w miesiącach]</th>
+                <th>Cena netto [zł]</th>
+                <th>Cena brutto [zł]</th>
+                <th>Vat [%]</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <!-- Break line -->
+    <br/><br/>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+</head>
+<body>
+
+<div align="center">
+    <h1>Wprowadź dane klienta:</h1>
+
+    <br/>
+
+
+    <form action="#" th:action="@{/admin/saveKli}" th:object="${Klient}" method="post">
+        <table border = "1" cellpadding="10">
+            <tr>
+                <td>Imię:</td>
+                <td><label>
+                    <input type="text" th:field="*{imie}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Nazwisko:</td>
+                <td><label>
+                    <input type="text" th:field="*{nazwisko}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Płeć:</td>
+                <td><label>
+                    <input type="text" th:field="*{plec}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Numer Adresu:</td>
+                <td><label>
+                    <input type="text" th:field="*{nr_adresu}">
+                </label></td>
+            </tr>
+            <tr>
+                <td>Mail:</td>
+                <td><label>
+                    <input type="text" th:field="*{mail}">
+                </label></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+        </table>
+        <a th:href="@{/admin}" class="myButton">Wróć do strony głównej</a>
+        <style type="text/css">
+            .myButton {
+                box-shadow:inset 0 1px 0 0 #ffffff;
+                background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+                background-color:#f9f9f9;
+                border-radius:6px;
+                border:1px solid #dcdcdc;
+                display:inline-block;
+                cursor:pointer;
+                color:#666666;
+                font-family:Arial,sans-serif;
+                font-size:11px;
+                font-weight:bold;
+                padding:11px 53px;
+                text-decoration:none;
+                text-shadow:0 1px 0 #ffffff;
+            }
+            .myButton:hover {
+                background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+                background-color:#e9e9e9;
+            }
+            .myButton:active {
+                position:relative;
+                top:1px;
+            }
+        </style>
+    </form>
+
+
+
+
+
+</div>
+</body>
+</html>
+

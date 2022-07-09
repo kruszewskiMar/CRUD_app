@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Adresy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    <style type="text/css">
+        html,body{overflow-y: scroll;}
+
+    </style>
+
+
+</head>
+<body overflow>
+
+<!-- Navigation -->
+<div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Hurtownia Części Elektronicznych</a>
+        <a href="/admin" class="w3-bar-item w3-button w3-padding-large w3-white">Strona główna</a>
+        <a class="w3-bar-item w3-button w3-padding-large w3-white" th:inline="text" style="color:lightskyblue;">Jesteś zalogowany/a jako: <b style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+    </div>
+
+
+
+
+
+
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<br></br>
+
+<div align="center">
+    <h1>Adresy</h1>
+    <a th:href="@{/admin/newAdd}" class="myButton">Dodaj nowy</a>
+    <style type="text/css">
+        .myButton {
+            box-shadow:inset 0 1px 0 0 #ffffff;
+            background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+            background-color:#f9f9f9;
+            border-radius:6px;
+            border:1px solid #dcdcdc;
+            display:inline-block;
+            cursor:pointer;
+            color:#666666;
+            font-family:Arial,sans-serif;
+            font-size:11px;
+            font-weight:bold;
+            padding:11px 53px;
+            text-decoration:none;
+            text-shadow:0 1px 0 #ffffff;
+        }
+        .myButton:hover {
+            background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+            background-color:#e9e9e9;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
+    </div>
+    <!-- Break line -->
+    <br/><br/>
+    <div align="center">
+    <table border = "1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Nr Adresu</th>
+            <th>Kraj</th>
+            <th>Miasto</th>
+            <th>Województwo</th>
+            <th>Ulica</th>
+            <th>Nr Budynku</th>
+            <th>Nr Lokalu</th>
+            <th>Kod pocztowy</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "adres : ${listAdresy}">
+            <td th:text = "${adres.nr_adresu}">Numer adresu</td>
+            <td th:text = "${adres.kraj}">Kraj</td>
+            <td th:text = "${adres.miasto}">Miasto</td>
+            <td th:text = "${adres.wojewodztwo}">Województwo</td>
+            <td th:text = "${adres.ulica}">Ulica</td>
+            <td th:text = "${adres.nr_budynku}">Numer Budynku</td>
+            <td th:text = "${adres.nr_lokalu}">Numer lokalu</td>
+            <td th:text = "${adres.kod_pocztowy}">Kod pocztowy</td>
+            <td>
+                <a th:href="@{'/admin/editAdd/' + ${adres.nr_adresu}}">Edycja</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/admin/deleteAdd/' + ${adres.nr_adresu}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+</body>
+</html>
